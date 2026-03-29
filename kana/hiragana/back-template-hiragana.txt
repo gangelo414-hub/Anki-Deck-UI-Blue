@@ -1,0 +1,48 @@
+<div class="wrap" style="padding-top: 24px;">
+  <div class="card-body" style="text-align: center;">
+
+    <div class="reading-box" style="border-color: var(--accent-blue); padding: 20px;">
+      <div style="font-size: 60px; font-weight: bold; color: var(--accent-blue); font-family: 'Noto Sans JP', sans-serif;">
+        {{hiragana}}
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; gap: 15px; margin-bottom: 20px;">
+      <div class="meaning-box" style="flex: 1; border-left: none; text-align: center; margin-bottom: 0; padding: 12px 5px;">
+        <div style="font-size: 10px; color: var(--text-muted); font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Romaji</div>
+        <div style="font-size: 36px; font-weight: 900; color: var(--text-main); font-family: 'Nunito', sans-serif; letter-spacing: 2px; line-height: 1.2;">{{rōmaji}}</div>
+      </div>
+      <div class="meaning-box" style="flex: 1; border-left: none; text-align: center; margin-bottom: 0; padding: 12px 5px;">
+        <div style="font-size: 10px; color: var(--text-muted); font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Katakana</div>
+        <div style="font-size: 36px; font-weight: bold; color: var(--text-main); font-family: 'Noto Sans JP', sans-serif; line-height: 1.2;">{{katakana}}</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    {{#hiraganaStrokeDiagram}}
+    <div class="vocab-box" style="display: block; text-align: center; background: var(--bg-surface-alt); padding: 20px 10px;">
+      <span class="vocab-box-label" style="background: var(--text-muted); font-family: 'Nunito', sans-serif;">URUTAN CORETAN</span>
+      <div class="stroke-img" style="margin-top: 10px; max-width: 100%; overflow: hidden;">
+        {{hiraganaStrokeDiagram}}
+      </div>
+    </div>
+    {{/hiraganaStrokeDiagram}}
+
+    <div style="display: flex; justify-content: space-around; gap: 10px; margin-top: 25px;">
+      {{#pronunciation}}
+      <div style="text-align: center;">
+         <div style="font-size: 11px; color: var(--text-muted); font-family: 'Nunito', sans-serif; font-weight: 800; text-transform: uppercase;">Audio Pria</div>
+         <div class="audio-mini" style="margin-top: 5px;">{{pronunciation}}</div>
+      </div>
+      {{/pronunciation}}
+      {{#pronunciationAlt}}
+      <div style="text-align: center;">
+         <div style="font-size: 11px; color: var(--text-muted); font-family: 'Nunito', sans-serif; font-weight: 800; text-transform: uppercase;">Audio Wanita</div>
+         <div class="audio-mini" style="margin-top: 5px;">{{pronunciationAlt}}</div>
+      </div>
+      {{/pronunciationAlt}}
+    </div>
+
+  </div>
+</div>

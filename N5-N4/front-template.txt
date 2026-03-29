@@ -1,0 +1,53 @@
+<div class="wrap">
+  <div class="topbar">
+    <div class="tags">
+      <span class="tag accent">語彙{{#Tags}}｜{{/Tags}}{{Tags}}</span>
+    </div>
+    <span class="side-label">depan</span>
+  </div>
+
+  <div id="audio-container" style="display:none;">
+    <div id="word-audio">{{Word Audio}}</div>
+    <div id="sentence-audio">{{Sentence Audio}}</div>
+  </div>
+
+  <div class="card-body" style="text-align: center; padding: 40px 20px;">
+    <div class="sentence-box" style="border: none; background: transparent; font-size: 42px; font-weight: bold; color: var(--text-main); margin-bottom: 10px; padding: 0;">
+      {{Word}}
+    </div>
+    <div style="font-size: 24px; color: var(--text-muted); font-family: 'Noto Sans JP', sans-serif;">
+      {{Sentence}}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // Konfigurasi delay dalam milidetik (misal 800ms = 0.8 detik)
+    const DELAY_MS = 800;
+
+    function playAudioWithDelay() {
+      // Cari elemen audio di dalam container
+      const audioElements = document.querySelectorAll('#audio-container audio');
+      
+      audioElements.forEach(audio => {
+        // Matikan autoplay default agar tidak bentrok
+        audio.autoplay = false;
+        audio.pause(); 
+        
+        // Jalankan audio setelah delay
+        setTimeout(() => {
+          audio.currentTime = 0;
+          audio.play().catch(e => console.log("Audio play blocked/failed:", e));
+        }, DELAY_MS);
+      });
+    }
+
+    // Eksekusi fungsi
+    if (document.readyState === 'complete') {
+      playAudioWithDelay();
+    } else {
+      window.addEventListener('load', playAudioWithDelay);
+    }
+  })();
+</script>

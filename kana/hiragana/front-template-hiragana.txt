@@ -1,0 +1,24 @@
+<div class="wrap" style="padding-top: 24px;">
+  <div class="card-body" style="text-align: center; padding: 40px 20px;">
+    
+    <div class="sentence-box" style="border: none; background: transparent; font-size: 80px; font-weight: bold; color: var(--text-main); padding: 0; font-family: 'Noto Sans JP', sans-serif;">
+      {{hiragana}}
+    </div>
+
+    {{#mnemonicHiragana}}
+    <button onclick="document.getElementById('mnemonic').style.display = document.getElementById('mnemonic').style.display === 'none' ? 'block' : 'none';" class="btn-mnemonic" style="margin-top: 30px; padding: 10px 24px; border-radius: 20px; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; cursor: pointer; transition: all 0.2s ease;">
+      SHOW MNEMONIC HINT
+    </button>
+
+    <div id="mnemonic" style="display: none; margin-top: 20px;">
+       <div style="border-radius: 12px; overflow: hidden; border: 2px solid var(--border-color); display: inline-block; max-width: 100%;">
+          {{mnemonicHiragana}}
+       </div>
+       <div style="font-size: 16px; color: var(--text-main); margin-top: 10px; font-family: 'Nunito', sans-serif; padding: 0 10px;">
+          {{mnemonicHiraganaDesc}}
+       </div>
+    </div>
+    {{/mnemonicHiragana}}
+
+  </div>
+</div>
